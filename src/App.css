@@ -25,34 +25,27 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  flex: 0 1 auto;
+  min-width: 0;
   color: #ffffff;
   text-decoration: none;
 }
 
-.brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1;
-  border: 2px solid rgba(255, 255, 255, 0.94);
-  border-radius: 8px;
+.brand-logo {
+  display: block;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
 }
 
-.brand-mark span {
-  margin-left: -2px;
-  transform: translateY(-3px) rotate(-17deg);
+.brand-logo-text {
+  height: 44px;
+  max-width: min(250px, 48vw);
 }
 
-.brand-name {
-  font-size: clamp(1.5rem, 2.35vw, 2.05rem);
-  font-weight: 700;
-  line-height: 1;
+.brand-logo-icon {
+  display: none;
+  height: 42px;
 }
 
 .contact-link,
@@ -531,6 +524,13 @@ textarea:focus,
   font-weight: 700;
 }
 
+.footer-logo {
+  display: block;
+  width: min(210px, 70vw);
+  height: auto;
+  margin: 0 auto 22px;
+}
+
 .video-modal {
   position: fixed;
   inset: 0;
@@ -643,18 +643,16 @@ textarea:focus,
   }
 
   .brand {
-    gap: 9px;
+    flex-shrink: 1;
   }
 
-  .brand-mark {
-    width: 34px;
-    height: 34px;
-    font-size: 15px;
-    border-radius: 7px;
+  .brand-logo-text {
+    display: none;
   }
 
-  .brand-name {
-    font-size: 1.28rem;
+  .brand-logo-icon {
+    display: block;
+    height: 40px;
   }
 
   .contact-link {

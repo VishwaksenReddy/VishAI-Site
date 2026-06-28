@@ -18,6 +18,8 @@ import cardMobileCalling from './assets/vishai/card-mobile-calling.png'
 import cardWebsite from './assets/vishai/card-website.png'
 import flow from './assets/vishai/flow.png'
 import hero from './assets/vishai/hero.png'
+import logoIcon from './assets/vishai/logo-icon.png'
+import logoText from './assets/vishai/logo-text.png'
 import productVideo from './assets/vishai/V1.mp4'
 import videoPoster from './assets/vishai/video-poster.png'
 import wavingPerson from './assets/vishai/waving-person.gif'
@@ -84,10 +86,8 @@ function App() {
     <div className="site-shell">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="VishAi home">
-          <span className="brand-mark" aria-hidden="true">
-            V<span>A</span>
-          </span>
-          <span className="brand-name">VishAi</span>
+          <img className="brand-logo brand-logo-text" src={logoText} alt="" aria-hidden="true" />
+          <img className="brand-logo brand-logo-icon" src={logoIcon} alt="" aria-hidden="true" />
         </a>
         <a className="contact-link" href="#contact">
           Contact Us
@@ -193,6 +193,7 @@ function App() {
       </main>
 
       <footer className="site-footer">
+        <img className="footer-logo" src={logoText} alt="VishAi" />
         <p>© Copyright 2024, All Rights Reserved</p>
       </footer>
 
