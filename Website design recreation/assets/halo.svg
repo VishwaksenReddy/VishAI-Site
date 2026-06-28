@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 620" fill="none">
+  <defs>
+    <radialGradient id="haloGlow" cx="50%" cy="52%" r="50%">
+      <stop offset="0%" stop-color="#7a2dcd" stop-opacity="0.35"></stop>
+      <stop offset="60%" stop-color="#5a23a0" stop-opacity="0.12"></stop>
+      <stop offset="100%" stop-color="#5a23a0" stop-opacity="0"></stop>
+    </radialGradient>
+    <linearGradient id="ringStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"></stop>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.7"></stop>
+      <stop offset="100%" stop-color="#cda9ef" stop-opacity="0.3"></stop>
+    </linearGradient>
+  </defs>
+  <ellipse cx="280" cy="320" rx="250" ry="250" fill="url(#haloGlow)"></ellipse>
+  <g transform="rotate(-13 280 320)" stroke="url(#ringStroke)" stroke-width="1.4" fill="none">
+    <ellipse cx="280" cy="170" rx="232" ry="74"></ellipse>
+    <ellipse cx="280" cy="220" rx="240" ry="78"></ellipse>
+    <ellipse cx="280" cy="272" rx="244" ry="80"></ellipse>
+    <ellipse cx="280" cy="324" rx="244" ry="80"></ellipse>
+    <ellipse cx="280" cy="376" rx="240" ry="78"></ellipse>
+    <ellipse cx="280" cy="428" rx="232" ry="74"></ellipse>
+    <ellipse cx="280" cy="478" rx="220" ry="70"></ellipse>
+  </g>
+</svg>

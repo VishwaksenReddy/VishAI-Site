@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{ background:#060109; font-family:'Quicksand',sans-serif; }
+    ::placeholder{ color:rgba(205,180,235,.45); }
+    input:focus, textarea:focus{ outline:none; border-color:rgba(216,182,242,.85) !important; }
+    .vai-card{ transition:transform .35s ease, box-shadow .35s ease; }
+    .vai-card:hover{ transform:translateY(-6px); box-shadow:0 18px 50px rgba(140,70,210,.35); }
+    .vai-btn{ transition:transform .2s ease, box-shadow .25s ease, filter .2s ease; }
+    .vai-btn:hover{ transform:translateY(-2px); box-shadow:0 10px 28px rgba(190,140,240,.45); filter:brightness(1.05); }
+  </style>
+</helmet>
+<div style="background:#060109; color:#fff; min-height:100vh; overflow-x:hidden; position:relative;">
+
+  <!-- NAV -->
+  <header style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:14px 48px; background:rgba(8,4,16,.92); backdrop-filter:blur(8px); border-bottom:1px solid rgba(120,90,180,.18); box-shadow:0 -1px 0 rgba(120,160,255,.35) inset;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="width:38px; height:38px; border:2px solid #fff; border-radius:9px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:17px; letter-spacing:-1px;">V<span style="display:inline-block; transform:translateY(-1px);">&#923;</span></div>
+      <span style="font-size:24px; font-weight:700; letter-spacing:.3px;">Vish&#923;i</span>
+    </div>
+    <a href="#contact" class="vai-btn" style="display:inline-block; background:#d9bbf2; color:#3a2456; font-weight:600; font-size:15px; padding:10px 26px; border-radius:24px; text-decoration:none;">Contact Us</a>
+  </header>
+
+  <!-- HERO -->
+  <section style="position:relative; width:100%; line-height:0;">
+    <img src="assets/hero.png" alt="Shaping The Future With Autonomous AI-Assistants" style="display:block; width:100%; height:auto;">
+  </section>
+
+  <!-- BENEFITS -->
+  <section style="position:relative; padding:80px 48px 90px; overflow:hidden;">
+    <div style="position:absolute; left:50%; bottom:-40px; transform:translateX(-50%); width:1100px; height:520px; background:radial-gradient(ellipse at center, rgba(120,45,205,.40), transparent 62%); pointer-events:none;"></div>
+    <div style="position:relative; max-width:1180px; margin:0 auto;">
+      <h2 style="font-size:46px; font-weight:700; margin-bottom:8px; padding-left:6px;">Benefits of AI-Assistants</h2>
+      <div style="display:grid; grid-template-columns:1fr 260px 1fr; gap:30px; align-items:center; margin-top:18px;">
+        <!-- left column -->
+        <div style="display:flex; flex-direction:column; justify-content:space-around; gap:70px; min-height:480px; padding-top:60px;">
+          <sc-for list="{{ leftItems }}" as="b" hint-placeholder-count="2">
+            <div>
+              <i class="{{ b.icon }}" style="font-size:26px; color:#a96fe0; margin-bottom:14px; display:block; filter:drop-shadow(0 0 10px rgba(150,90,230,.5));"></i>
+              <h3 style="font-size:19px; font-weight:600; margin-bottom:7px;">{{ b.title }}</h3>
+              <p style="font-size:13.5px; line-height:1.55; color:#cfc6da; max-width:230px;">{{ b.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <!-- character: halo rings + fillable waving-person gif -->
+        <div style="display:flex; justify-content:center; align-items:center; min-height:560px;">
+          <div style="position:relative; width:260px; height:560px;">
+            <img src="assets/halo.svg" alt="" aria-hidden="true" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:470px; max-width:none; height:auto; pointer-events:none; z-index:1;">
+            <img src="assets/waving-person.gif" alt="AI Assistant waving" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); height:500px; width:auto; z-index:2;">
+          </div>
+        </div>
+        <!-- right column -->
+        <div style="display:flex; flex-direction:column; justify-content:space-around; gap:60px; min-height:520px;">
+          <sc-for list="{{ rightItems }}" as="b" hint-placeholder-count="3">
+            <div>
+              <i class="{{ b.icon }}" style="font-size:26px; color:#a96fe0; margin-bottom:14px; display:block; filter:drop-shadow(0 0 10px rgba(150,90,230,.5));"></i>
+              <h3 style="font-size:19px; font-weight:600; margin-bottom:7px;">{{ b.title }}</h3>
+              <p style="font-size:13.5px; line-height:1.55; color:#cfc6da; max-width:240px;">{{ b.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIRTUAL HUMAN -->
+  <section style="padding:60px 48px 80px; text-align:center; background:#000;">
+    <h2 style="font-size:42px; font-weight:700; margin-bottom:38px;">The Virtual Human in Action</h2>
+    <div onClick="{{ onPlay }}" class="vai-card" style="position:relative; display:inline-block; width:262px; border-radius:6px; overflow:hidden; cursor:pointer; box-shadow:0 16px 50px rgba(90,40,160,.4);">
+      <img src="assets/video-poster.png" alt="Virtual human video" style="display:block; width:100%; height:auto;">
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section style="padding:46px 48px 70px; text-align:center; background:radial-gradient(ellipse at 15% 35%, rgba(95,35,170,.30), transparent 45%), radial-gradient(ellipse at 90% 88%, rgba(95,35,170,.30), transparent 45%), #000;">
+    <h2 style="font-size:42px; font-weight:700; margin-bottom:20px;">How it Works?</h2>
+    <img src="assets/flow.png" alt="How it works flow diagram" style="display:block; margin:0 auto; width:100%; max-width:360px; height:auto;">
+  </section>
+
+  <!-- TOUCHPOINTS -->
+  <section style="position:relative; padding:70px 48px 60px; text-align:center; overflow:hidden;">
+    <h2 style="font-size:44px; font-weight:700; margin-bottom:6px;">One AI, Many Touchpoints</h2>
+    <p style="font-size:13px; color:#d8cfe4; margin-bottom:40px;">Here are some key forms of deployment</p>
+    <div style="display:grid; grid-template-columns:repeat(2, minmax(0,300px)); gap:26px; justify-content:center; max-width:660px; margin:0 auto;">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="4">
+        <div class="vai-card" style="border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.5); aspect-ratio:1.45/1;">
+          <img src="{{ c.img }}" alt="{{ c.alt }}" style="display:block; width:100%; height:100%; object-fit:cover;">
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- GET IN TOUCH -->
+  <section id="contact" style="position:relative; padding:40px 48px 120px; overflow:hidden;">
+    <div style="position:absolute; left:50%; top:30%; transform:translateX(-50%); width:1300px; height:760px; background:radial-gradient(ellipse at center, rgba(120,45,205,.42), transparent 60%); pointer-events:none;"></div>
+    <div style="position:relative; max-width:760px; margin:0 auto; padding:44px 54px 54px; border-radius:24px; background:linear-gradient(160deg, rgba(58,30,92,.55), rgba(24,12,42,.40)); border:1px solid rgba(150,110,205,.28); box-shadow:0 30px 80px rgba(70,30,140,.35); backdrop-filter:blur(4px);">
+      <h2 style="font-size:40px; font-weight:700; text-align:center; margin-bottom:8px;">Get in Touch</h2>
+      <p style="text-align:center; font-size:13px; color:#e4daf0; margin-bottom:34px;">Want to get in touch? We'd love to hear from you!</p>
+      <form onSubmit="{{ onSubmit }}">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-bottom:22px;">
+          <div>
+            <label style="display:block; font-size:13px; margin-bottom:8px; color:#efe8f8;">First Name <span style="color:#e06b8a;">*</span></label>
+            <input required type="text" placeholder="First Name" style="width:100%; padding:13px 14px; background:transparent; border:1px solid rgba(190,150,235,.40); border-radius:7px; color:#fff; font-family:inherit; font-size:14px;">
+          </div>
+          <div>
+            <label style="display:block; font-size:13px; margin-bottom:8px; color:#efe8f8;">Last Name <span style="color:#e06b8a;">*</span></label>
+            <input required type="text" placeholder="Last Name" style="width:100%; padding:13px 14px; background:transparent; border:1px solid rgba(190,150,235,.40); border-radius:7px; color:#fff; font-family:inherit; font-size:14px;">
+          </div>
+          <div>
+            <label style="display:block; font-size:13px; margin-bottom:8px; color:#efe8f8;">Email <span style="color:#e06b8a;">*</span></label>
+            <input required type="email" placeholder="Email" style="width:100%; padding:13px 14px; background:transparent; border:1px solid rgba(190,150,235,.40); border-radius:7px; color:#fff; font-family:inherit; font-size:14px;">
+          </div>
+          <div>
+            <label style="display:block; font-size:13px; margin-bottom:8px; color:#efe8f8;">Phone Number <span style="color:#e06b8a;">*</span></label>
+            <div style="display:flex; align-items:center; gap:8px; padding:13px 14px; background:transparent; border:1px solid rgba(190,150,235,.40); border-radius:7px;">
+              <i class="fa-solid fa-globe" style="color:rgba(205,180,235,.6); font-size:14px;"></i>
+              <input required type="tel" placeholder="Phone Number" style="flex:1; background:transparent; border:none; color:#fff; font-family:inherit; font-size:14px; outline:none;">
+            </div>
+          </div>
+        </div>
+        <div style="margin-bottom:30px;">
+          <label style="display:block; font-size:13px; margin-bottom:8px; color:#efe8f8;">Message</label>
+          <textarea placeholder="Type here" rows="4" style="width:100%; padding:13px 14px; background:transparent; border:1px solid rgba(190,150,235,.40); border-radius:7px; color:#fff; font-family:inherit; font-size:14px; resize:vertical;"></textarea>
+        </div>
+        <div style="text-align:center;">
+          <button type="submit" class="vai-btn" style="border:none; cursor:pointer; font-family:inherit; min-width:300px; padding:13px 28px; border-radius:8px; font-size:15px; font-weight:600; color:#3a2456; background:linear-gradient(180deg,#e3c6f6,#cda2ef);">{{ buttonLabel }}</button>
+          <p style="height:18px; margin-top:12px; font-size:13px; color:#9be6b0; opacity:{{ sentOpacity }}; transition:opacity .3s;">Thanks! We'll be in touch shortly.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid rgba(255,255,255,.13); padding:34px 20px; text-align:center;">
+    <p style="font-size:13px; color:#cfc6da; letter-spacing:.3px;">{{ copyright }}</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+
+  renderVals() {
+    return {
+      buttonLabel: "Let's Connect \u2B50",
+      copyright: "\u00A9 Copyright 2024, All Rights Reserved",
+      sentOpacity: this.state.sent ? 1 : 0,
+      onSubmit: (e) => {
+        e.preventDefault();
+        this.setState({ sent: true });
+        try { e.target.reset(); } catch (_) {}
+      },
+      onPlay: () => {},
+      leftItems: [
+        { icon: "fa-solid fa-lightbulb", title: "Actionable Insights", body: "AI-Assistants collect and analyze data, offering valuable insights that can drive better decision-making and enhance strategic planning." },
+        { icon: "fa-solid fa-piggy-bank", title: "Cost Savings", body: "By automating repetitive tasks, AI-Assistants help reduce operational costs, making them a budget-friendly solution for businesses of all sizes." }
+      ],
+      rightItems: [
+        { icon: "fa-solid fa-user", title: "Personalized Service", body: "AI-Assistants provide tailored interactions that adapt to each user's unique needs, ensuring a seamless and personalized experience every time." },
+        { icon: "fa-solid fa-rocket", title: "Increased Efficiency", body: "Streamline workflows and boost productivity by automating routine tasks, freeing up human resources for more complex responsibilities." },
+        { icon: "fa-solid fa-bullseye", title: "24/7 Availability", body: "Available around the clock, AI-Assistants ensure that customers always receive the support they need, regardless of the time or day." }
+      ],
+      cards: [
+        { img: "assets/card-kiosk.png", alt: "Kiosks" },
+        { img: "assets/card-mobile-app.png", alt: "Mobile Application" },
+        { img: "assets/card-mobile-calling.png", alt: "Mobile Calling" },
+        { img: "assets/card-website.png", alt: "Website" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
